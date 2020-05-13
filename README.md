@@ -21,7 +21,7 @@ Please note that [psycopg2](https://www.psycopg.org/) have some system dependenc
 
 In both cases, after you follow the instructions, the application should be running at localhost port 5000.
 
-## Disclaimner
+## Disclaimer
 All data provided by this project was extracted from the previously mentioned Polygon article. All credits for gathering this information goes to it.
 
 ## License
