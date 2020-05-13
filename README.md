@@ -17,7 +17,7 @@ $ source venv/bin/activate
 (venv) $ FLASK_APP=src/ FLASK_ENV=development flask run
 ```
 
-Please note that [psycopg2](https://www.psycopg.org/) have some system dependencies. Check its (installation page)[https://www.psycopg.org/docs/install.html] for more details.
+Please note that [psycopg2](https://www.psycopg.org/) have some system dependencies. Check its [installation page](https://www.psycopg.org/docs/install.html) for more details.
 
 In both cases, after you follow the instructions, the application should be running at localhost port 5000.
 
