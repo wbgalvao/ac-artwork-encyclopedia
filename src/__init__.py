@@ -33,7 +33,11 @@ def create_app(test_config=None):
             db_conn = db.get_db()
             cur = db_conn.cursor()
             cur.execute(
-                """SELECT animal_crossing_name, real_life_name, real_life_author, authenticity_helper_info, polygon_image_url
+                """SELECT animal_crossing_name,
+                          real_life_name,
+                          real_life_author,
+                          authenticity_helper_info,
+                          polygon_image_url
                    FROM artwork
                    WHERE LOWER(animal_crossing_name) LIKE %s
                    LIMIT 1""",
