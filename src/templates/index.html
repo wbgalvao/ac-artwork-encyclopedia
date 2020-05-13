@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <head>
+        <meta charset="utf=8">
+        <title>Fuck you, Jolly Redd</title>
+    </head>
+    <main class="container">
+        <header>
+            <div id="header-message" align="center">
+                <h1>Fuck you, Jolly Redd</h1>
+                <h2>Search for an artwork and check if this <strike>motherfucker</strike> fox is selling you the authentic version of it</h2>
+            </div>
+        </header>
+        {% if animal_crossing_name %}
+            <div id="artwork-info" align="center" style="padding: 2.5%;">
+                <h3><strong>{{ animal_crossing_name }}</strong></h3>
+                <h4><strong>({{ real_life_name }} by {{ real_life_author }} )</strong></h4>
+                <p>{{ authenticity_helper_info }}</p>
+                <picture>
+                    <img src="{{ polygon_image_url }}" alt="{{ real_life_name }} by {{ real_life_author }} Real vs Fake"/>
+                    <span id="image-credits">
+                        <cite>Image: Julia Lee/Polygon | Source images: Nintendo EPD/Nintendo</cite>
+                    </span>
+                </picture>
+            </div>
+        {% else %}
+            <div id="search-form" align="center" style="padding: 2.5%;">
+                <form method="POST">
+                    <input name="artwork" id="artwork" required>
+                    <input type="submit" value="Seacrh">
+                </form>
+            </div>
+            {% if not_found %}
+                <div id="not-found" align="center" style="padding: 2.5%;">
+                    <p><strong>Sorry, couldn't find any artwork with that description :(</strong></p>
+                </div>
+            {% endif %}
+        {% endif %}
+        <div id="footer" class="footer" align="center" style="margin-top: 2.5%;">
+            © Copyright 2020 Wilder B. Galvão
+            </br>
+            DISCLAIMER: All data included in this application was extracted from <a href="https://www.polygon.com/animal-crossing-new-horizons-switch-acnh-guide/2020/4/23/21231433/redd-jolly-museum-art-fake-real-forgeries-list-complete-painting-statue">this Polygon article</a>
+        </div>
+    </main>
+</html>

@@ -1,0 +1,32 @@
+version: '3.1'
+
+
+services:
+
+    postgres:
+        image: postgres:12
+        environment:
+            - POSTGRES_USER=jolly_redd
+            - POSTGRES_PASSWORD=shady_business
+            - POSTGRES_DB=ac_artwork_encyclopedia
+        network_mode: host
+        ports:
+            - 5432:5432
+
+    app:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        environment:
+            - PYTHONDONTWRITEBYTECODE=1
+            - PYTHONUNBUFFERED=1
+            - PIP_DISABLE_PIP_VERSION_CHECK=1
+            - FLASK_ENV=development
+            - FLASK_APP=/app/src/
+            - BUILD_DATABASE=true
+        network_mode: host
+        ports:
+            - 5000:5000
+        depends_on:
+            - postgres
+        command: ["/bin/sh", "/app/src/scripts/wait-for.sh", "localhost:5432", "-t", "60", "--", "/bin/sh", "/app/docker-entrypoint.sh"]
